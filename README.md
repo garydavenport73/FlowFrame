@@ -7,9 +7,18 @@ they will flow like text.  The widgets currently are set to be sticky="NSEW" but
 Also, I have a removeWidgets method, which just removes all widgets from the frame.  I plan to give more methods in the future.
 There is a demo called flowFrameDemo.py
 
-Summary:
-
-Object:         FlowFrame
-Inherets from:  Frame
-Methods:        addWidget(widget)
-                removeWidgets()
+<div>
+<ul>
+  Summary:
+  <li>Object: FlowFrame</li>
+  <li>Inherets from: Frame</li>
+  <li>
+  Methods:
+    <ul>
+      <li>addWidget(widget)</li>
+      <li>removeWidgets()</li>
+    </ul>
+  </li>
+  
+</ul>
+  </div>
