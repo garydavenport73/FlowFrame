@@ -8,8 +8,9 @@ Also, I have a removeWidgets method, which just removes all widgets from the fra
 There is a demo called flowFrameDemo.py
 
 <div>
+    Summary:
 <ul>
-  Summary:
+
   <li>Object: FlowFrame</li>
   <li>Inherets from: Frame</li>
   <li>
