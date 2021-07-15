@@ -14,8 +14,9 @@ and
 ```
 -destroyWidgets()
 ```
+### Example 1:
 
-#### Here is an example demo
+#### showing the .addWidget() method:
 ```
 from tkinter import *
 from flowframe import *
@@ -51,24 +52,9 @@ This frame should be easy to use if you are somewhat familiar with using tkinter
 6) Don't mix geometry managers - in other words, don't try to pack something into the frame, then try to use the frames's addWidget method.  This will cause errors just like trying to mix pack, grid, and place geometry managers.  Technically, the frame.addWidget() method uses the grid geometry manager, so you will not always get errors.  But the bottom line is, you should simply add to the frame using its addWidgets method rather than trying to grid to the frame.  This may lead to less than predictable results.
 7) At this time, the other method is FlowFrame.destroyWidgets() which destroys the objects and removes them from the frame.  This is like a reset.  It may not be the most intricate or nuanced method, but in practice, this simple method adds substantial functionality to the package as a whole.  If I get requests for a more nuanced approach, I may revisit the module, but at this time, the package remains quite usable as is.
 
-<div>
-    Summary:
-<ul>
+### Example 2:
 
-  <li>Object: FlowFrame</li>
-  <li>Inherets from: Frame</li>
-  <li>
-  Methods:
-    <ul>
-      <li>addWidget(widget)</li>
-      <li>destroyWidgets()</li>
-    </ul>
-  </li>
-  
-</ul>
-  </div>
-  
-#### Here is a more expansive example, using the destroyWidgets() method to illustrate more fully the basic functionality:
+#### showing the .addWidget() and .destroyWidgets() methods:
 ```
 from tkinter import *
 from flowframe import *
@@ -112,3 +98,19 @@ def main():
 
 main()
 ```
+<div>
+    Summary:
+<ul>
+
+  <li>Object: FlowFrame</li>
+  <li>Inherets from: Frame</li>
+  <li>
+  Methods:
+    <ul>
+      <li>addWidget(widget)</li>
+      <li>destroyWidgets()</li>
+    </ul>
+  </li>
+  
+</ul>
+  </div>
