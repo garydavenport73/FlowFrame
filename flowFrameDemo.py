@@ -1,8 +1,5 @@
-
 from tkinter import *
 from flowframe import *
-
-import time
 
 def _destroyWidgets():
     myframe.destroyWidgets()
@@ -19,16 +16,7 @@ def main():
     myframe.pack(fill="both", expand=1) 
 
     button=Button(myframe, text="---Button---")
-
-    button.pack()
-    root.update()
-    time.sleep(2)
-
-    button.grid(sticky=NSEW)
-    root.update()
-    time.sleep(1)
-
-    myframe.addWidget(button)
+    myframe.addWidget(button, sticky=NSEW)
 
     textbox=Text(myframe,width=3,height=2)
     myframe.addWidget(textbox)
@@ -48,11 +36,10 @@ def main():
     scale_widget = Scale(myframe, from_=0, to=100, orient=HORIZONTAL)
     myframe.addWidget(scale_widget)
 
-    button2=Button(myframe, text="---Remove All---", command=_destroyWidgets)
+    button2=Button(myframe, text="----Remove All---", command=_destroyWidgets)
     myframe.addWidget(button2)
-
-    #myframe.removeWidgets()
 
     root.mainloop()
 
 main()
+
