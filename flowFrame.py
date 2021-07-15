@@ -10,7 +10,7 @@
 # 
 # Make sure the instance of the frame is made to expand
 # into parent container for the FlowFrame to work correctly.
-#       
+#
 from tkinter import Frame
 
 class FlowFrame(Frame):
@@ -21,66 +21,35 @@ class FlowFrame(Frame):
 
     def addWidget(self, widget, **kwargs):
         #get the names of all widgets and place in list
-
         self.widgetChildList=[]
         for child in self.children:
             self.widgetChildList.append(child)
 
-        """
-        if force==True:
-            print("force was True")
-            #remove from frame (unpack, ungrid, unplace)
-            for child in self.children:    
-                try:
-                    #print("trying pack info",self.children[child].pack_info())
-                    self.children[child].pack_forget()
-                    #print(self.children[child], "was packed, will forget and reflow/grid")
-                except:
-                    pass
-                    #print("not packed")
-                try:
-                    #print("trying grid info",self.children[child].grid_info())
-                    if len(self.children[child].grid_info())>0:
-                        self.children[child].grid_forget()
-                        #print(self.children[child], "was gridded, will forget and reflow/grid")
-                except:
-                    pass
-                    #print("not gridded")
-                try:
-                    #print("trying place info", self.children[child].place_info())  
-                    if len(self.children[child].place_info())>0:
-                        self.children[child].place_forget()
-                        #print(self.children[child], "was gridded, will forget and reflow/grid")    
-                except:
-                    pass
-                    #print("not placed")
-        """
         #add the new widget to the list
         self.widgetChildList.append(widget)
-        """
-        if force==True:
-            for child in self.children:
-                self.children[child].grid(kwargs)
-        else:
-            widget.grid(kwargs)
-        """
+
+        #grid the widget with its keyword arguments
         widget.grid(kwargs)
 
     def destroyWidgets(self):
+
         #get the names of all widgets in the frame and place in list
         self.widgetChildList=[]
         for child in self.children:
             self.widgetChildList.append(child)
+
         #destroy the widgets    
         for  i in range(len(self.children)):
             self.children[self.widgetChildList[i]].destroy()
+
         #reset list to empty
         self.widgetChildList=[]
             
     def _reorganizeWidgets(self):
         #set list to empty
         self.widgetChildList=[]
-        #make new list based on children
+
+        #make new list based on current children of frame/self
         for child in self.children:
             self.widgetChildList.append(child)
 
