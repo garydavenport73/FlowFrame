@@ -1,5 +1,5 @@
 from tkinter import *
-from flowframe import *
+from flowframe import FlowFrame
 
 def _destroyWidgets():
     myframe.destroyWidgets()
@@ -11,7 +11,7 @@ def main():
     root.title("Using Inherited \"FlowFrame\"")
 
     global myframe
-    myframe=Frame(root)
+    myframe=FlowFrame(root)
     #make sure frame expands to fill parent window
     myframe.pack(fill="both", expand=1) 
 
