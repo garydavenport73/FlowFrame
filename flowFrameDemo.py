@@ -1,45 +1,26 @@
 from tkinter import *
-from flowframe import FlowFrame
-
-def _destroyWidgets():
-    myframe.destroyWidgets()
+from flowframe import *
 
 def main():
 
+    buttonArray=[]
     root = Tk()
 
-    root.title("Using Inherited \"FlowFrame\"")
-
-    global myframe
-    myframe=FlowFrame(root)
+    myframe=FlowFrame(root, mode="grid")
     #make sure frame expands to fill parent window
     myframe.pack(fill="both", expand=1) 
 
-    button=Button(myframe, text="---Button---")
-    myframe.addWidget(button, sticky=NSEW)
+    buttonMakePlace=Button(myframe, text="---Use Place---",command=myframe.organizeWidgetsWithPlace)
+    myframe.addWidget(buttonMakePlace, sticky=NSEW)
 
-    textbox=Text(myframe,width=3,height=2)
-    myframe.addWidget(textbox)
+    buttonMakeGrid=Button(myframe, text="---Use Grid---", command=myframe.organizeWidgetsWithGrid)
+    myframe.addWidget(buttonMakeGrid, sticky=NSEW)
 
-    label=Label(myframe,text="Label")
-    myframe.addWidget(label,sticky=NSEW)
+    buttonDestroy=Button(myframe,text="---Destroy---", command = myframe.destroyWidgets)
 
-    entry=Entry(myframe)
-    myframe.addWidget(entry, sticky=NSEW)
-
-    radioButton=Radiobutton(myframe,text="radio button")
-    myframe.addWidget(radioButton)
-
-    checkButton=Checkbutton(myframe,text="CheckButton")
-    myframe.addWidget(checkButton)
-
-    scale_widget = Scale(myframe, from_=0, to=100, orient=HORIZONTAL)
-    myframe.addWidget(scale_widget)
-
-    button2=Button(myframe, text="----Remove All---", command=_destroyWidgets)
-    myframe.addWidget(button2)
+    for i in range(10):
+        buttonArray.append(Button(myframe,text=str(i)))
 
     root.mainloop()
 
 main()
-
