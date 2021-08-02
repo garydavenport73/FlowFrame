@@ -22,13 +22,7 @@ class FlowFrame(Frame):
     def __init__(self, *args, **kwargs):
         self.mode = kwargs.pop('mode', 'grid')
         super().__init__(*args, **kwargs)
-        if self.mode == "place":
-            self.bind("<Configure>",
-                      lambda event: self._reorganizeWidgetsWithPlace())
-        else:
-            self.mode = "grid"
-            self.bind("<Configure>",
-                      lambda event: self._reorganizeWidgetsWithGrid())
+        if self.mode != "place": self.mode="grid"
         self.widgets = []
 
     def organizeWidgetsWithGrid(self):
@@ -88,8 +82,12 @@ class FlowFrame(Frame):
         self.widgetChildList.append(widget)
 
         if self.mode == "place":
+            self.stopOrganizingWidgets()
+            self.bind("<Configure>",lambda event: self._reorganizeWidgetsWithPlace())
             self._reorganizeWidgetsWithPlace()
         else:
+            self.stopOrganizingWidgets()
+            self.bind("<Configure>",lambda event: self._reorganizeWidgetsWithGrid())
             self._reorganizeWidgetsWithGrid()
 
     def destroyWidgets(self):
